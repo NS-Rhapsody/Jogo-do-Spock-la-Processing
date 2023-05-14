@@ -2,12 +2,14 @@ int computador = int(random(1, 5));
 String resultado;
 int estagio = -1;
 int posicaoText = -50;
+PImage photo;
 
 void setup() {
   size(500,500);
   println(computador);
   textSize(20);
   textAlign(CENTER);
+  photo = loadImage("spocke.png");
 }
 
 void draw() {
@@ -21,8 +23,9 @@ void draw() {
       estagio = 0;
     }
   }
-  else if (estagio == 0) {
+  else if (estagio == 0) {    
     background(150);
+    image(photo, 0, 0);
     fill(0);
     text("Pedra-papel-tesoura-lagarto-Spock", 250, 150);
     text("Escolha um dos itens", 250, 200);
