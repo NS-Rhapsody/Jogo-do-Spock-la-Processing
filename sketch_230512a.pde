@@ -27,7 +27,7 @@ void draw() {
     background(150);
     image(photo, 0, 0);
     fill(0);
-    text("Pedra-papel-tesoura-lagarto-Spock", 250, 150);
+    text("Pedra-Papel-Tesoura-Calango-Spock", 250, 150);
     text("Escolha um dos itens", 250, 200);
     if (mouseX < 100 && mouseY > 400) {
       fill(0);
