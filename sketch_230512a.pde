@@ -1,8 +1,9 @@
 int computador = int(random(1, 5));
 String computadorText;
 String resultado;
-int estagio = -1;
+int estagio = -2;
 int posicaoText = -50;
+float transparencia = 0;
 PImage photo;
 
 void setup() {
@@ -14,17 +15,33 @@ void setup() {
 }
 
 void draw() {
-  if (estagio == -1 && posicaoText < 250) {
+  if (estagio == -2 && posicaoText < 250) {
     background(150);
     posicaoText+=2.5;
     fill(0);
-    text("Pedra-papel-tesoura-lagarto-Spock", posicaoText, 150);
+    text("Pedra-Papel-Tesoura-Calango-Spock", posicaoText, 150);
     text("Escolha um dos itens", posicaoText, 200);
     if (posicaoText == 250) {
-      estagio = 0;
+      estagio = -1;
     }
-  }
-  else if (estagio == 0) {    
+  } else if (estagio == -1) {
+    transparencia += 3;
+    fill(255, 255, 255, transparencia);
+    square(0, 400, 100);
+    square(100, 400, 100);
+    square(200, 400, 100);
+    square(300, 400, 100);
+    square(400, 400, 100);
+    fill(0, 0, 0, transparencia);
+    text("Tesoura", 50, 450);
+    text("Papel", 150, 450);
+    text("Pedra", 250, 450);
+    text("Calango", 350, 450);
+    text("Spock", 450, 450);
+    if (transparencia == 255) {
+    estagio = 0;
+    }
+  } else if (estagio == 0) {    
     background(150);
     image(photo, 0, 0);
     fill(0);
