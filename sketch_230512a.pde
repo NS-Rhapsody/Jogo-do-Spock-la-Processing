@@ -1,4 +1,5 @@
 int computador = int(random(1, 5));
+String computadorText;
 String resultado;
 int estagio = -1;
 int posicaoText = -50;
@@ -87,7 +88,18 @@ void draw() {
   } else {
     background(150);
     fill(0);
-    text("O computador escolheu " + computador, 250, 150); 
+    if (computador == 1) {
+      computadorText = "Tesoura";
+    } else if (computador == 2) {
+      computadorText = "Papel";
+    } else if (computador == 3) {
+      computadorText = "Pedra";
+    } else if (computador == 4) {
+      computadorText = "Calango";
+    } else {
+      computadorText = "Spock";
+    }
+    text("O computador escolheu " + computadorText, 250, 150); 
     text(resultado, 250, 250);
     if (mouseX > 200 && mouseX < 300 && mouseY > 300 && mouseY < 350) {
       fill(0);
