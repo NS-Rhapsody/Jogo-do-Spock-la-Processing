@@ -4,6 +4,8 @@ String resultado;
 int estagio = -2;
 int posicaoText = -50;
 float transparencia = 0;
+int vitoriasComputador = 0;
+int vitoriasJogador = 0;
 PImage photo;
 
 void setup() {
@@ -17,7 +19,7 @@ void setup() {
 void draw() {
   if (estagio == -2 && posicaoText < 250) {
     background(150);
-    posicaoText+=2.5;
+    posicaoText+=3;
     fill(0);
     text("Pedra-Papel-Tesoura-Calango-Spock", posicaoText, 150);
     text("Escolha um dos itens", posicaoText, 200);
@@ -47,6 +49,7 @@ void draw() {
     fill(0);
     text("Pedra-Papel-Tesoura-Calango-Spock", 250, 150);
     text("Escolha um dos itens", 250, 200);
+    text("Jogador " + vitoriasJogador + " x " + vitoriasComputador + " Computador", 250, 300);
     if (mouseX < 100 && mouseY > 400) {
       fill(0);
       square(0, 400, 100);
@@ -188,6 +191,11 @@ void mousePressed() {
   if (mouseX > 200 && mouseX < 300 && mouseY > 300 && mouseY < 350 && estagio == 1) {
       estagio = 0;
       computador = int(random(1, 5));
+      if (resultado == "Ganhou") {
+        vitoriasJogador++;
+      } else if (resultado == "Perdeu tudo, morando de aluguel") {
+        vitoriasComputador++;
+      }
     }
   }
 }
